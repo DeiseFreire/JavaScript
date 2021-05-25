@@ -13,24 +13,35 @@
     <style>
         div#area {
             font: normal 20pt Arial;
-            background: rgh(42, 139, 42);
+            background: rgb(42, 139, 42);
             color: white;
             width: 200px;
             height: 200px;
             line-height: 200px;
-            text-aling: center
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <div id="area" onclick="clicar()" onmouseenter = "enter()"></div>
+    <div id="area" onclick="clicar()" onmouseenter="entrar()" onmouseout="sair()">
         Interaja...
     </div>
     <script>
+        var area = window.document.getElementById('area')
+        area.addEventListener('click', clicar)
+        area.addEventListener('mousecenter', entrar)
+        area.addEventListener('mouseout', sair)
         function clicar() {
-            var area = window.document.getElementById('area')
-            a.innerText = 'Clicou!'
+            area.innerText = 'Clicou!'
+            area.style.background = 'red'
+        }
+        function entrar() {
+            area.innerText = 'Entrou!'
+        }
+        function sair() {
+            area.innerText = 'Saiu!'
+            area.style.background = 'green'
         }
     </script>
 </body>
